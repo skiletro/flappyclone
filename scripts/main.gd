@@ -8,8 +8,6 @@ var game_in_progress = false
 var score = 0
 var pipes : Array
 
-@onready var originalBirdPosition = Vector2($Bird.position.x, $Bird.position.y)
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize()
@@ -25,10 +23,8 @@ func _process(delta: float) -> void:
 			pipe.position.x = pipe.position.x - 100 * delta
 
 func start_game() -> void:
-	$Bird.position = originalBirdPosition
-	$Bird.rotation = 0
+	$Bird.reset()
 	game_in_progress = true
-	$Bird.isAlive = true
 	$Floor.isMoving = true
 	score = 0
 	$Counter.update_counter(score)

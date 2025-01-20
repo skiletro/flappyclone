@@ -3,6 +3,9 @@ extends CharacterBody2D
 var isAlive = true
 const JUMP_VELOCITY = -300.0
 
+@onready var originalPosition = position
+@onready var originalRotation = rotation
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -23,3 +26,9 @@ func _physics_process(delta: float) -> void:
 		rotation = deg_to_rad(90)
 
 	move_and_slide()
+
+func reset() -> void:
+	isAlive = true
+	position = originalPosition
+	rotation = originalRotation
+	velocity = Vector2(0, 0)
