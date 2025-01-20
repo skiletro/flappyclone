@@ -40,6 +40,8 @@ func start_game() -> void:
 			child.queue_free()
 	pipe_timer.start()
 	
+	$RestartLabel.hide() # Temporary until proper HUD is implemented.
+	
 func stop_game() -> void:
 	game_in_progress = false
 	$Bird.isAlive = false
@@ -47,6 +49,8 @@ func stop_game() -> void:
 	pipe_timer.stop()
 	$HitSound.play()
 	$DieSound.play()
+	
+	$RestartLabel.show() # Temporary until proper HUD is implemented.
 
 func _on_pipe_timer_timeout() -> void:
 	var pipe = pipe_scene.instantiate()
