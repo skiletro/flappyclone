@@ -1,0 +1,45 @@
+[gd_scene load_steps=13 format=3 uid="uid://byiwoiutm7uh"]
+
+[ext_resource type="Script" path="res://scripts/counter.gd" id="1_ormwd"]
+[ext_resource type="Texture2D" uid="uid://c5g84tvsf1rut" path="res://sprites/0.png" id="2_by4ll"]
+[ext_resource type="Texture2D" uid="uid://c1lw06kcr84yo" path="res://sprites/empty.png" id="2_ysrdx"]
+[ext_resource type="Texture2D" uid="uid://frw6ewsp1fu6" path="res://sprites/1.png" id="4_yed47"]
+[ext_resource type="Texture2D" uid="uid://c3eowjxnnt0hu" path="res://sprites/2.png" id="5_lfyy1"]
+[ext_resource type="Texture2D" uid="uid://docehwtrxpvdv" path="res://sprites/3.png" id="6_1l78s"]
+[ext_resource type="Texture2D" uid="uid://eyaqf8dx6eve" path="res://sprites/4.png" id="7_u8vpe"]
+[ext_resource type="Texture2D" uid="uid://dnmqsiqnwqqmw" path="res://sprites/5.png" id="8_ix66p"]
+[ext_resource type="Texture2D" uid="uid://bj0va613m6vo4" path="res://sprites/6.png" id="9_fj540"]
+[ext_resource type="Texture2D" uid="uid://beg8jlofa4hgu" path="res://sprites/7.png" id="10_clpuk"]
+[ext_resource type="Texture2D" uid="uid://dy1qor4f0em77" path="res://sprites/8.png" id="11_c5h8t"]
+[ext_resource type="Texture2D" uid="uid://btj2ta1owmky2" path="res://sprites/9.png" id="12_5oqog"]
+
+[node name="Counter" type="HBoxContainer"]
+offset_right = 74.0
+offset_bottom = 36.0
+theme_override_constants/separation = 1
+alignment = 1
+script = ExtResource("1_ormwd")
+empty = ExtResource("2_ysrdx")
+zero = ExtResource("2_by4ll")
+one = ExtResource("4_yed47")
+two = ExtResource("5_lfyy1")
+three = ExtResource("6_1l78s")
+four = ExtResource("7_u8vpe")
+five = ExtResource("8_ix66p")
+six = ExtResource("9_fj540")
+seven = ExtResource("10_clpuk")
+eight = ExtResource("11_c5h8t")
+nine = ExtResource("12_5oqog")
+
+[node name="Hundred" type="TextureRect" parent="."]
+layout_mode = 2
+stretch_mode = 2
+
+[node name="Ten" type="TextureRect" parent="."]
+layout_mode = 2
+stretch_mode = 2
+
+[node name="One" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_by4ll")
+stretch_mode = 2
