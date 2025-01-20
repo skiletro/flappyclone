@@ -36,7 +36,7 @@ func start_game() -> void:
 	# Clear all pipes
 	pipes.clear()
 	for child in get_children():
-		if child.scene_file_path == "res://scenes/top_and_bottom_pipe.tscn":
+		if child.scene_file_path == pipe_scene.resource_path:
 			child.queue_free()
 	pipe_timer.start()
 	
