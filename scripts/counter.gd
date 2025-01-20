@@ -1,6 +1,5 @@
 extends HBoxContainer
 
-@export var empty : Resource
 @export var zero : Resource
 @export var one : Resource
 @export var two : Resource
@@ -17,11 +16,20 @@ func update_counter(counter: int) -> void:
 	var tensDigit = (counter / 10) % 10
 	var hundredsDigit = (counter / 100) % 10
 	
+	# Ones Digit
 	set_texture($One, onesDigit)
+	
+	# Tens Digit
 	if tensDigit > 0:
 		set_texture($Ten, tensDigit)
+	else:
+		$Ten.texture = null
+		
+	# Hundreds Digit
 	if hundredsDigit > 0:
 		set_texture($Hundred, hundredsDigit)
+	else:
+		$Hundred.texture = null
 
 func set_texture(node: Node, digit: int) -> void:
 	match digit:
