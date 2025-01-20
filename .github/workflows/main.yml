@@ -35,5 +35,5 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         generateReleaseNotes: true
-        tag: ${{ github.ref_name }}
+        name: ${{ github.sha }}
         artifacts: ${{ steps.export.outputs.archive_directory }}/*
