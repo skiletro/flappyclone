@@ -1,3 +1,5 @@
+<img src="./.github/assets/screenshot.webp" align="left" width="300" style="margin-right:10px;">
+
 # flappyclone
 A poorly made Flappy Bird clone, written in the Godot Engine. This is my first project in the engine, which has helped me greatly in figuring out how the node system works, etc.
 
