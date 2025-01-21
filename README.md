@@ -5,5 +5,4 @@ A poorly made Flappy Bird clone, written in the Godot Engine. This is my first p
 Gameplay loop is done, press R on your keyboard to restart.
 
 ## What needs to be done?
-- [ ] Main Menu
 - [ ] Optimisation
