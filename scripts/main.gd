@@ -16,6 +16,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("restart"):
+		$SwooshSound.play()
 		start_game()
 	
 	if game_in_progress:
@@ -30,10 +31,10 @@ func start_game() -> void:
 	$Counter.update_counter(score)
 	
 	# Clear all pipes
+	get_tree().call_group("pipes", "queue_free")
 	pipes.clear()
-	for child in get_children():
-		if child.scene_file_path == pipe_scene.resource_path:
-			child.queue_free()
+	
+	# Restart the timer
 	pipe_timer.start()
 	
 	$RestartLabel.hide() # Temporary until proper HUD is implemented.
@@ -50,7 +51,7 @@ func stop_game() -> void:
 
 func _on_pipe_timer_timeout() -> void:
 	var pipe = pipe_scene.instantiate()
-	pipe.hit.connect(_on_hit_pipe)
+	pipe.hit.connect(_on_pipe_hit)
 	pipe.score.connect(_on_pipe_score)
 	pipe.position.x = 290
 	pipe.position.y = 190 + (randi() % height_variance - (height_variance/2))
@@ -59,7 +60,7 @@ func _on_pipe_timer_timeout() -> void:
 	pipes.append(pipe)
 	add_child(pipe)
 
-func _on_hit_pipe() -> void:
+func _on_pipe_hit() -> void:
 	if game_in_progress:
 		stop_game()
 	

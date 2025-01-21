@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="flappyclone"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -22,6 +22,10 @@ window/size/viewport_height=1024
 window/stretch/mode="canvas_items"
 window/stretch/scale=2.0
 window/vsync/vsync_mode=0
+
+[global_group]
+
+pipes=""
 
 [input]
 

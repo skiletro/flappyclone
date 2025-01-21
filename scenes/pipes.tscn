@@ -7,29 +7,29 @@
 size = Vector2(52, 320)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uo1o1"]
-size = Vector2(27, 122)
+size = Vector2(27, 112)
 
-[node name="TopAndBottomPipe" type="Area2D"]
+[node name="TopAndBottomPipe" type="Area2D" groups=["pipes"]]
 script = ExtResource("1_ircpn")
 
 [node name="TopPipe" type="Sprite2D" parent="."]
-position = Vector2(52, -61)
+position = Vector2(52, -56)
 rotation = -3.14159
 texture = ExtResource("1_o4ap0")
 centered = false
 
 [node name="TopPipeCollision" type="CollisionShape2D" parent="."]
-position = Vector2(26, -221)
+position = Vector2(26, -216)
 rotation = -3.14159
 shape = SubResource("RectangleShape2D_56aam")
 
 [node name="BottomPipe" type="Sprite2D" parent="."]
-position = Vector2(0, 61)
+position = Vector2(0, 56)
 texture = ExtResource("1_o4ap0")
 centered = false
 
 [node name="BottomPipeCollision" type="CollisionShape2D" parent="."]
-position = Vector2(26, 221)
+position = Vector2(26, 216)
 rotation = -3.14159
 shape = SubResource("RectangleShape2D_56aam")
 

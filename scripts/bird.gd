@@ -24,6 +24,11 @@ func _physics_process(delta: float) -> void:
 	# Stop the rotation from overshooting
 	if rotation > deg_to_rad(90):
 		rotation = deg_to_rad(90)
+		
+	if isAlive:
+		$AnimatedSprite2D.play("default")
+	else:
+		$AnimatedSprite2D.stop()
 
 	move_and_slide()
 
