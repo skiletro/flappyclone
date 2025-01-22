@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_mh475"]
 [ext_resource type="Texture2D" uid="uid://c37gusj5up284" path="res://sprites/background.png" id="1_uu017"]
 [ext_resource type="PackedScene" uid="uid://bvlsthlfbm6hi" path="res://scenes/floor.tscn" id="2_fiwil"]
-[ext_resource type="Script" path="res://scenes/logo_menu.gd" id="3_bkgog"]
+[ext_resource type="Script" path="res://scripts/logo_menu.gd" id="3_bkgog"]
 [ext_resource type="Texture2D" uid="uid://blkeh3nacfbvq" path="res://sprites/message.png" id="3_c8ohs"]
 [ext_resource type="Texture2D" uid="uid://bx6j3lbpaw1ey" path="res://sprites/yellowbird-midflap.png" id="4_pqyvu"]
 [ext_resource type="Texture2D" uid="uid://cu8mx8qc4gb6f" path="res://sprites/yellowbird-downflap.png" id="5_ylsgo"]
