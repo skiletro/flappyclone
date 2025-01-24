@@ -6,7 +6,6 @@ extends Node2D
 
 var game_in_progress = false
 var score = 0
-var pipes : Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,8 +19,11 @@ func _process(delta: float) -> void:
 		start_game()
 	
 	if game_in_progress:
-		for pipe in pipes:
-			pipe.position.x = pipe.position.x - 100 * delta
+		for pipe in $Pipes.get_children():
+			if pipe.position.x < -55:
+				pipe.queue_free() # Delete pipe if it goes out of bounds
+			else:
+				pipe.position.x = pipe.position.x - 100 * delta # Otherwise, move it along
 
 func start_game() -> void:
 	$Bird.reset()
@@ -32,7 +34,6 @@ func start_game() -> void:
 	
 	# Clear all pipes
 	get_tree().call_group("pipes", "queue_free")
-	pipes.clear()
 	
 	# Restart the timer
 	pipe_timer.start()
@@ -57,8 +58,7 @@ func _on_pipe_timer_timeout() -> void:
 	pipe.position.y = 190 + (randi() % height_variance - (height_variance/2))
 	
 	# Add the pipe to the scene
-	pipes.append(pipe)
-	add_child(pipe)
+	$Pipes.add_child(pipe)
 
 func _on_pipe_hit() -> void:
 	if game_in_progress:
