@@ -1,14 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://dacxj0s5htoxu"]
+[gd_scene load_steps=16 format=3 uid="uid://dacxj0s5htoxu"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_mh475"]
 [ext_resource type="Texture2D" uid="uid://c37gusj5up284" path="res://sprites/background.png" id="1_uu017"]
 [ext_resource type="PackedScene" uid="uid://bvlsthlfbm6hi" path="res://scenes/floor.tscn" id="2_fiwil"]
-[ext_resource type="Script" path="res://scripts/logo_menu.gd" id="3_bkgog"]
 [ext_resource type="Texture2D" uid="uid://blkeh3nacfbvq" path="res://sprites/message.png" id="3_c8ohs"]
 [ext_resource type="Texture2D" uid="uid://bx6j3lbpaw1ey" path="res://sprites/yellowbird-midflap.png" id="4_pqyvu"]
 [ext_resource type="Texture2D" uid="uid://cu8mx8qc4gb6f" path="res://sprites/yellowbird-downflap.png" id="5_ylsgo"]
 [ext_resource type="Texture2D" uid="uid://djoy33aw0vas2" path="res://sprites/yellowbird-upflap.png" id="6_3si6y"]
 [ext_resource type="Script" path="res://scripts/bird_menu.gd" id="7_1kx57"]
+[ext_resource type="Script" path="res://scripts/menu_logo.gd" id="9_wedjp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gn8j8"]
 animations = [{
@@ -30,6 +30,43 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_h5c2q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Logo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(33, 125)]
+}
+
+[sub_resource type="Animation" id="Animation_33vh5"]
+resource_name = "bob"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Logo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(33, 100), Vector2(33, 125), Vector2(33, 100)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_56gy0"]
+_data = {
+"RESET": SubResource("Animation_h5c2q"),
+"bob": SubResource("Animation_33vh5")
+}
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i5j52"]
 
 [sub_resource type="Theme" id="Theme_2kap6"]
@@ -50,20 +87,26 @@ offset = Vector2(144, 256)
 
 [node name="Floor" parent="." instance=ExtResource("2_fiwil")]
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Logo" type="Node2D" parent="."]
 position = Vector2(33, 125)
-script = ExtResource("3_bkgog")
 
-[node name="Message" type="Sprite2D" parent="Node2D"]
+[node name="Message" type="Sprite2D" parent="Logo"]
 position = Vector2(92, 24)
 texture = ExtResource("3_c8ohs")
 region_enabled = true
 region_rect = Rect2(0, 0, 184, 48)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Logo"]
 position = Vector2(205, 20)
 sprite_frames = SubResource("SpriteFrames_gn8j8")
 script = ExtResource("7_1kx57")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Logo"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_56gy0")
+}
+script = ExtResource("9_wedjp")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
