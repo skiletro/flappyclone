@@ -17,7 +17,7 @@
         ...
       }: {
         devShells.default = pkgs.mkShellNoCC {
-          buildInputs = with pkgs; [godot_4];
+          buildInputs = with pkgs; [just godot_4];
           shellHook = ''
             printf "\n\033[0;37m\033[44m GODOT \033[0m \033[0;36mType '\033[1;36mjust edit\033[0;36m' to get started!\033[0m\n\n"
             just --list
